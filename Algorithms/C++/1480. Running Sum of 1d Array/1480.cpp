@@ -13,6 +13,12 @@ public:
             result.push_back(sum += num);
         return result;
     }
+
+    vector<int> runningSum2(vector<int>& nums) {
+        for(int i = 1; i < nums.size(); i++)
+            nums[i] += nums[i-1];
+        return nums;
+    }
 };
 
 int main(){
