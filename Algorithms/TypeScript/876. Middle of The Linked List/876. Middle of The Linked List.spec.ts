@@ -1,4 +1,4 @@
-import { TestCase } from '../interface/testCase';
+import { TestCase, test_template } from '../interface/testCase';
 import { testFuntions, ListNode } from './876. Middle of The Linked List';
 
 let example1_input_node : ListNode | null = null;
@@ -30,25 +30,17 @@ for(let value = 6; value > 0; value--) {
 const testCases: TestCase[] = [
     {
         name: 'Example 1',
-        input: example1_input_node,
-        expectResult: example1_output_node,
+        inputs: [example1_input_node],
+        expect_result: example1_output_node,
     },
     {
         name: 'Example 2',
-        input: example2_input_node,
-        expectResult: example2_output_node,
+        inputs: [example2_input_node],
+        expect_result: example2_output_node,
     },
 ];
 
-const testTemplate = (fnc: any) => (testCase: TestCase) => {
-    const caseName = `${testCase.name} use ${fnc.name}`;
-    test(caseName, () => {
-        const actualResult = fnc(testCase.input);
-        expect(actualResult).toEqual(testCase.expectResult);
-    });
-};
-
 testFuntions.forEach((fnc) => {
-    const template = testTemplate(fnc);
+    const template = test_template(fnc);
     testCases.forEach((testCase) => template(testCase));
 });
