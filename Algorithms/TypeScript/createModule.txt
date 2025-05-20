@@ -1,0 +1,40 @@
+用法: 在 TypeScript 資料夾內輸入指令
+node createModule.js myFolderName
+或
+.\createModule.ps1 -name myFolderName
+
+在windows環境下使用腳本創建資料夾及檔案並設定檔案初始內容
+
+./指令 name
+資料夾結構
+-name
+    -name.ts
+    -name.spec.ts
+
+name.ts初始
+
+function fnc(): number{ 
+    return 0; 
+}
+export const test_funtions = [ 
+    fnc, 
+];
+
+name.spec.ts初始
+
+import { TestCase, test_template } from '../interface/testCase';
+import { test_funtions } from './name'; 
+
+const testCases: TestCase[] = [
+    {
+        name: 'Example 1',
+        inputs: [],
+        expect_result: (0), 
+    },
+ 
+];
+
+test_funtions.forEach((fnc) => {
+    const template = test_template(fnc);
+    testCases.forEach((testCase) => template(testCase));
+});
