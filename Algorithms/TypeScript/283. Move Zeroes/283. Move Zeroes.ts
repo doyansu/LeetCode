@@ -1,4 +1,9 @@
-﻿function moveZeroes(nums: number[]): number[] {
+﻿// in place
+// function moveZeroes(nums: number[]): void {
+    
+// };
+
+function moveZeroes(nums: number[]): number[] {
     let zero_index = nums.indexOf(0);
     for (let i = (zero_index >= 0 ? zero_index : nums.length) + 1; i < nums.length; ++i) {
         if (nums[i]) {
@@ -9,10 +14,6 @@
     }
     return nums;
 };
-
-// function moveZeroes(nums: number[]): void {
-    
-// };
 
 export const test_funtions = [
     moveZeroes,

@@ -1,4 +1,5 @@
-﻿// function setZeroes(matrix: number[][]): void {
+﻿// in place
+// function setZeroes(matrix: number[][]): void {
     
 // };
 
