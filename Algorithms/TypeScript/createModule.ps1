@@ -33,7 +33,7 @@ import { TestCase, test_template, test_template_verify_function } from '../inter
 import { test_funtion_list, verify_function } from './$name';
 
 test_funtion_list.forEach((fnc) => {
-    const testCases: TestCase[] = [
+    const test_case_list: TestCase[] = [
         {
             name: 'Example 1',
             inputs: [],
@@ -43,11 +43,12 @@ test_funtion_list.forEach((fnc) => {
 
     const template = test_template(fnc);
     const template_verify = test_template_verify_function(fnc, verify_function);
-    testCases.forEach((testCase) => {
-        template(testCase);
-        if (verify_function !== undefined)
-            template_verify(testCase);
-    });
+    
+    test_case_list.forEach((testCase) => template(testCase));
+
+    if (verify_function !== undefined) {
+        test_case_list.forEach((testCase) => template_verify(testCase));
+    }
 });
 "@
 $specTsContent | Out-File -Encoding UTF8 -FilePath $specTsPath -Force
