@@ -18,19 +18,21 @@ function fnc(): number {
     return 0;
 }
 
-export const test_funtions = [
+export const test_funtion_list = [
     fnc,
 ];
+
+export const verify_function = undefined;
 "@
 $nameTsContent | Out-File -Encoding UTF8 -FilePath $nameTsPath -Force
 
 # name.spec.ts 初始內容
 $specTsPath = Join-Path -Path $folderPath -ChildPath "$name.spec.ts"
 $specTsContent = @"
-import { TestCase, test_template } from '../interface/testCase';
-import { test_funtions } from './$name';
+import { TestCase, test_template, test_template_verify_function } from '../interface/testCase';
+import { test_funtion_list, verify_function } from './$name';
 
-test_funtions.forEach((fnc) => {
+test_funtion_list.forEach((fnc) => {
     const testCases: TestCase[] = [
         {
             name: 'Example 1',
@@ -40,7 +42,12 @@ test_funtions.forEach((fnc) => {
     ];
 
     const template = test_template(fnc);
-    testCases.forEach((testCase) => template(testCase));
+    const template_verify = test_template_verify_function(fnc, verify_function);
+    testCases.forEach((testCase) => {
+        template(testCase);
+        if (verify_function !== undefined)
+            template_verify(testCase);
+    });
 });
 "@
 $specTsContent | Out-File -Encoding UTF8 -FilePath $specTsPath -Force
