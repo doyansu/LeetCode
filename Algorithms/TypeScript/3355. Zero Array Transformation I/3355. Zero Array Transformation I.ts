@@ -1,6 +1,6 @@
 ﻿// 18ms Difference Array
 function isZeroArray(nums: number[], queries: number[][]): boolean {
-    let delta_array: number[] = new Array(nums.length).fill(0);
+    let delta_array: number[] = new Array(nums.length + 1).fill(0);
     for (let i = 0; i < queries.length; ++i) {
         let left = queries[i][0];
         let right = queries[i][1];
