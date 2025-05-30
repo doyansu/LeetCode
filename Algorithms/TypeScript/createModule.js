@@ -21,41 +21,51 @@ if (!fs.existsSync(folderPath)) {
 
 // 建立 name.ts 初始內容
 const tsTemplate = 
-`function fnc(): number {
-    return 0;
+`function fnc(n: number): number {
+    return n;
 }
 
 export const test_funtion_list = [
     fnc,
 ];
 
-export const verify_function = undefined;
+export const verify_function: any = undefined;
 `;
 
 fs.writeFileSync(tsFilePath, tsTemplate, 'utf8');
 
 // 建立 name.spec.ts 初始內容
 const specTemplate = 
-`import { TestCase, test_template, test_template_verify_function } from '../interface/testCase';
+`import { TestCase, test_template } from '../interface/testCase';
+import { getRandomInt } from '../interface/commonFuntions';
 import { test_funtion_list, verify_function } from './${name}';
 
 test_funtion_list.forEach((fnc) => {
+    // default test case
     const test_case_list: TestCase[] = [
         {
             name: 'Example 1',
-            inputs: [],
+            inputs: [0],
             expect_result: null,
         },
     ];
 
-    const template = test_template(fnc);
-    const template_verify = test_template_verify_function(fnc, verify_function);
-    
-    test_case_list.forEach((testCase) => template(testCase));
-
+    // init romdom test case
     if (verify_function !== undefined) {
-        test_case_list.forEach((testCase) => template_verify(testCase));
+        for (let i = 0; i < 0; ++i) {
+            let inputs: any[] = [getRandomInt(0, 1)];
+            let random_test_case: TestCase = {
+                name: \`Random Example \${i}\`,
+                inputs: inputs,
+                expect_result: verify_function(...inputs),
+            };
+            test_case_list.push(random_test_case);
+        }
     }
+
+    // start test
+    const template = test_template(fnc);
+    test_case_list.forEach((testCase) => template(testCase));
 });
 `;
 
