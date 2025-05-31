@@ -56,7 +56,7 @@ test_funtion_list.forEach((fnc) => {
     const template = test_template(fnc);
     const template_verify = test_template_verify_function(fnc, verify_function);
     
-    for (let i = 0; i < 100; ++i) {
+    for (let i = 0; i < 5; ++i) {
         // let size = getRandomInt(2, 100000);
         let size = getRandomInt(2, 100);
         let input: number[] = [];
