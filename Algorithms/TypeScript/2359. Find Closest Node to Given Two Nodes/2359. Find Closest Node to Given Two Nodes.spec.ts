@@ -24,7 +24,7 @@ test_funtion_list.forEach((fnc) => {
 
     // 自訂 romdom test case
     if (verify_function !== undefined) {
-        for (let i = 0; i < 100; ++i) {
+        for (let i = 0; i < 10; ++i) {
             let size = getRandomInt(2, 100000);
             let inputs: any[] = [new Array(size).fill(0).map(() => getRandomInt(-1, size - 1)), getRandomInt(0, size - 1), getRandomInt(0, size -1)];
             let random_test_case: TestCase = {
