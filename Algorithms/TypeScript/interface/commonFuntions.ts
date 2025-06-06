@@ -1,4 +1,4 @@
-import { ListNode } from "./LeetCodeDataStructure"
+import { ListNode, TreeNode } from "./LeetCodeDataStructure"
 
 // 取得隨機整數 min <= number <= max 
 export function getRandomInt(min: number, max: number): number {
@@ -18,4 +18,21 @@ export function arrayToListNode(arr: number[]): ListNode | null {
     }
     
     return head;
+}
+
+// 
+export function transform_binaryheap_to_binaryTree(arr: (number | null)[]): TreeNode | null {
+    if (arr.length === 0) 
+        return null;
+    
+    let binary_heap = arr.map((value) => value != null ? new TreeNode(value, null, null) : null);
+
+    for (let i = 0; (i << 1) < binary_heap.length; ++i) {
+        if (binary_heap[i] !== null) {
+            binary_heap[i]!.left = binary_heap[(i << 1) + 1];
+            binary_heap[i]!.right = binary_heap[(i << 1) + 2];
+        }
+    }
+    
+    return binary_heap[0];
 }
