@@ -1,5 +1,6 @@
 import { TestCase, test_template } from '../interface/testCase';
-import { testFuntions, ListNode } from './876. Middle of The Linked List';
+import { ListNode } from '../interface/LeetCodeDataStructure'
+import { testFuntions } from './876. Middle of The Linked List';
 
 let example1_input_node : ListNode | null = null;
 let example1_output_node : ListNode | null = null;

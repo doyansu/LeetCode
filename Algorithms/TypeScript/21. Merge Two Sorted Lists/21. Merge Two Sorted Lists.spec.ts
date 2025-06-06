@@ -1,19 +1,6 @@
 ﻿import { TestCase, test_template } from '../interface/testCase';
-import { test_funtions, ListNode } from './21. Merge Two Sorted Lists';
-
-function arrayToListNode(arr: number[]): ListNode | null {
-    if (arr.length === 0) return null;
-    
-    const head = new ListNode(arr[0]);
-    let current = head;
-    
-    for (let i = 1; i < arr.length; i++) {
-        current.next = new ListNode(arr[i]);
-        current = current.next;
-    }
-    
-    return head;
-}
+import { arrayToListNode } from '../interface/commonFuntions'
+import { test_funtions } from './21. Merge Two Sorted Lists';
 
 test_funtions.forEach((fnc) => {
     const testCases: TestCase[] = [
