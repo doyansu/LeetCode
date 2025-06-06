@@ -37,10 +37,10 @@ fs.writeFileSync(tsFilePath, tsTemplate, 'utf8');
 // 建立 name.spec.ts 初始內容
 const specTemplate = 
 `import { TestCase, test_template } from '../interface/testCase';
-import { getRandomInt } from '../interface/commonFuntions';
+import { get_random_integer } from '../interface/commonFuntions';
 import { test_funtion_list, verify_function } from './${name}';
 
-test_funtion_list.forEach((fnc) => {
+test_funtion_list.forEach((test_funtion) => {
     // default test case
     const test_case_list: TestCase[] = [
         {
@@ -53,7 +53,7 @@ test_funtion_list.forEach((fnc) => {
     // init romdom test case
     if (verify_function !== undefined) {
         for (let i = 0; i < 0; ++i) {
-            let inputs: any[] = [getRandomInt(0, 1)];
+            let inputs: any[] = [get_random_integer(0, 1)];
             let random_test_case: TestCase = {
                 name: \`Random Example \${i}\`,
                 inputs: inputs,
@@ -64,8 +64,8 @@ test_funtion_list.forEach((fnc) => {
     }
 
     // start test
-    const template = test_template(fnc);
-    test_case_list.forEach((testCase) => template(testCase));
+    const template = test_template(test_funtion);
+    test_case_list.forEach((test_case) => template(test_case));
 });
 `;
 
