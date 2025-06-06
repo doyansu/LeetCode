@@ -1,5 +1,5 @@
 import { TestCase, test_template } from '../interface/testCase';
-import { getRandomInt } from '../interface/commonFuntions';
+import { get_random_integer } from '../interface/commonFuntions';
 import { test_funtion_list, verify_function } from './62. Unique Paths';
 
 test_funtion_list.forEach((fnc) => {
@@ -50,7 +50,7 @@ test_funtion_list.forEach((fnc) => {
     // init romdom test case
     if (verify_function !== undefined) {
         for (let i = 0; i < 10; ++i) {
-            let inputs: any[] = [getRandomInt(1, 20), getRandomInt(1, 20)];
+            let inputs: any[] = [get_random_integer(1, 20), get_random_integer(1, 20)];
             let random_test_case: TestCase = {
                 name: `Random Example ${i}`,
                 inputs: inputs,

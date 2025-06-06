@@ -1,5 +1,5 @@
 ﻿import { TestCase, test_template } from '../interface/testCase';
-import { getRandomInt } from '../interface/commonFuntions';
+import { get_random_integer } from '../interface/commonFuntions';
 import { test_funtions, verify_function } from './3362. Zero Array Transformation III';
 // jest-ignore
 test_funtions.forEach((fnc) => {
@@ -103,13 +103,13 @@ test_funtions.forEach((fnc) => {
     if (verify_function !== undefined) {
         for (let i = 0; i < 50; ++i) {
             const max_length = 1000;
-            let n = getRandomInt(1, max_length);
-            let m = getRandomInt(1, max_length);
+            let n = get_random_integer(1, max_length);
+            let m = get_random_integer(1, max_length);
             let inputs: any[] = [
-                new Array(n).fill(0).map(() => getRandomInt(0, Math.min(m, n)>>4)), 
+                new Array(n).fill(0).map(() => get_random_integer(0, Math.min(m, n)>>4)), 
                 new Array(m).fill([]).map(() => {
-                    let left = getRandomInt(0, n - 1);
-                    let right = getRandomInt(left, n - 1);
+                    let left = get_random_integer(0, n - 1);
+                    let right = get_random_integer(left, n - 1);
                     return [left, right];
                 })
             ];

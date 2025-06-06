@@ -1,5 +1,5 @@
 ﻿import { TestCase, test_template } from '../interface/testCase';
-import { getRandomInt } from '../interface/commonFuntions';
+import { get_random_integer } from '../interface/commonFuntions';
 import { test_funtion_list, verify_function } from './2359. Find Closest Node to Given Two Nodes';
 
 test_funtion_list.forEach((fnc) => {
@@ -25,8 +25,8 @@ test_funtion_list.forEach((fnc) => {
     // 自訂 romdom test case
     if (verify_function !== undefined) {
         for (let i = 0; i < 10; ++i) {
-            let size = getRandomInt(2, 100000);
-            let inputs: any[] = [new Array(size).fill(0).map(() => getRandomInt(-1, size - 1)), getRandomInt(0, size - 1), getRandomInt(0, size -1)];
+            let size = get_random_integer(2, 100000);
+            let inputs: any[] = [new Array(size).fill(0).map(() => get_random_integer(-1, size - 1)), get_random_integer(0, size - 1), get_random_integer(0, size -1)];
             let random_test_case: TestCase = {
                 name: `Random Example ${i}`,
                 inputs: inputs,

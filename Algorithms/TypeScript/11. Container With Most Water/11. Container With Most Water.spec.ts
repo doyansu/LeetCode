@@ -1,5 +1,5 @@
 ﻿import { TestCase, test_template, test_template_verify_function } from '../interface/testCase';
-import { getRandomInt } from '../interface/commonFuntions';
+import { get_random_integer } from '../interface/commonFuntions';
 import { test_funtion_list, verify_function } from './11. Container With Most Water';
 
 test_funtion_list.forEach((fnc) => {
@@ -58,10 +58,10 @@ test_funtion_list.forEach((fnc) => {
     
     for (let i = 0; i < 5; ++i) {
         // let size = getRandomInt(2, 100000);
-        let size = getRandomInt(2, 100);
+        let size = get_random_integer(2, 100);
         let input: number[] = [];
         while(size--) {
-            input.push(getRandomInt(0, 10000));
+            input.push(get_random_integer(0, 10000));
         }
         test_case_list.push({
             name: `Random Example ${i}`,

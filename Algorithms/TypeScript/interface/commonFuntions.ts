@@ -1,12 +1,12 @@
 import { ListNode, TreeNode } from "./LeetCodeDataStructure"
 
 // 取得隨機整數 min <= number <= max 
-export function getRandomInt(min: number, max: number): number {
+export function get_random_integer(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // 將 array 轉換成 ListNode
-export function arrayToListNode(arr: number[]): ListNode | null {
+export function transform_array_to_listNode(arr: number[]): ListNode | null {
     if (arr.length === 0) return null;
     
     const head = new ListNode(arr[0]);

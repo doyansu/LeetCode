@@ -1,5 +1,5 @@
 import { TestCase, test_template } from '../interface/testCase';
-import { getRandomInt } from '../interface/commonFuntions';
+import { get_random_integer } from '../interface/commonFuntions';
 import { test_funtion_list, verify_function } from './215. Kth Largest Element in an Array';
 
 test_funtion_list.forEach((fnc) => {
@@ -20,8 +20,8 @@ test_funtion_list.forEach((fnc) => {
     // init romdom test case
     if (verify_function !== undefined) {
         for (let i = 0; i < 10; ++i) {
-            let n = getRandomInt(1, 100000);
-            let inputs: any[] = [new Array(n).fill(0).map(() => getRandomInt(-10000, 10000)), getRandomInt(1, n)];
+            let n = get_random_integer(1, 100000);
+            let inputs: any[] = [new Array(n).fill(0).map(() => get_random_integer(-10000, 10000)), get_random_integer(1, n)];
             let random_test_case: TestCase = {
                 name: `Random Example ${i}`,
                 inputs: inputs,
